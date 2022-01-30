@@ -1,0 +1,112 @@
+[abeeshks@localhost client]$ cat file2.txt 
+fdsf
+dfds
+fsdfds
+dsfdsfds
+fdsfdsf
+fdsfsd
+[abeeshks@localhost client]$ go run workingfileuploadclient.go add file2.txt 
+Add is called with files : [file2.txt]
+Request failed with response code:  Post "http://localhost:4000/upload": EOF
+[abeeshks@localhost client]$ go run workingfileuploadclient.go update file2.txt 
+Update is called with files : [file2.txt]
+Api request %s successfully finished  update
+[abeeshks@localhost client]$ go run workingfileuploadclient.go wc
+Wc is called with files : []
+API Response For WordCount of file names (34) is  0
+API Response For WordCount of file names (4) is  0
+API Response For WordCount of file names (45) is  0
+API Response For WordCount of file names (46) is  0
+API Response For WordCount of file names (47) is  0
+API Response For WordCount of file names (5) is  0
+API Response For WordCount of file names (6) is  0
+API Response For WordCount of file names (7) is  0
+API Response For WordCount of file names (8) is  0
+API Response For WordCount of file names (file1.txt) is  0
+API Response For WordCount of file names (file2.txt) is  6
+API Response For WordCount of file names (file3.txt) is  0
+API Response For WordCount of file names (file4.txt) is  0
+[abeeshks@localhost client]$ go run workingfileuploadclient.go update file2.txt file2.txt file3.txt file4.txt
+Update is called with files : [file2.txt file2.txt file3.txt file4.txt]
+Api request %s successfully finished  update
+[abeeshks@localhost client]$ go run workingfileuploadclient.go wc
+Wc is called with files : []
+API Response For WordCount of file names (34) is  0
+API Response For WordCount of file names (4) is  0
+API Response For WordCount of file names (45) is  0
+API Response For WordCount of file names (46) is  0
+API Response For WordCount of file names (47) is  0
+API Response For WordCount of file names (5) is  0
+API Response For WordCount of file names (6) is  0
+API Response For WordCount of file names (7) is  0
+API Response For WordCount of file names (8) is  0
+API Response For WordCount of file names (file1.txt) is  0
+API Response For WordCount of file names (file2.txt) is  6
+API Response For WordCount of file names (file3.txt) is  6
+API Response For WordCount of file names (file4.txt) is  7
+[abeeshks@localhost client]$ touch 23 
+[abeeshks@localhost client]$ tee 23 
+dfdsf
+dfdsf
+ds
+ds
+fds
+fds
+f
+f
+ds
+ds
+ff[abeeshks@localhost client]$ go run workingfileuploadclient.go add 23
+Add is called with files : [23]
+Api request %s successfully finished  add
+[abeeshks@localhost client]$ go run workingfileuploadclient.go wc
+Wc is called with files : []
+API Response For WordCount of file names (23) is  6
+API Response For WordCount of file names (34) is  0
+API Response For WordCount of file names (4) is  0
+API Response For WordCount of file names (45) is  0
+API Response For WordCount of file names (46) is  0
+API Response For WordCount of file names (47) is  0
+API Response For WordCount of file names (5) is  0
+API Response For WordCount of file names (6) is  0
+API Response For WordCount of file names (7) is  0
+API Response For WordCount of file names (8) is  0
+API Response For WordCount of file names (file1.txt) is  0
+API Response For WordCount of file names (file2.txt) is  6
+API Response For WordCount of file names (file3.txt) is  6
+API Response For WordCount of file names (file4.txt) is  7
+[abeeshks@localhost client]$ go run workingfileuploadclient.go rm 34
+Rm is called with files : [34]
+Api request  successfully finished 
+[abeeshks@localhost client]$ go run workingfileuploadclient.go rm ls
+Rm is called with files : [ls]
+Request failed with response code: 500[abeeshks@localhost client]$ go run workingfileuploadclient.go rls
+No option is given
+
+Tool Excecution commands supported
+
+<client binary> add <file1> <file2> ...
+<client binary> ls
+<client binary> rm <file1> <file2> ...
+<client binary> update <file1> <file2> ...
+<client binary> wc
+ 
+exit status 1
+[abeeshks@localhost client]$ go run workingfileuploadclient.go ls
+List is called with files :
+API Response For list file names are   23
+API Response For list file names are   4
+API Response For list file names are   45
+API Response For list file names are   46
+API Response For list file names are   47
+API Response For list file names are   5
+API Response For list file names are   6
+API Response For list file names are   7
+API Response For list file names are   8
+API Response For list file names are   file1.txt
+API Response For list file names are   file2.txt
+API Response For list file names are   file3.txt
+API Response For list file names are   file4.txt
+[abeeshks@localhost client]$ 
+
+
