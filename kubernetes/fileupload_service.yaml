@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-02-05T21:34:20Z"
+  name: my-fileupload
+  namespace: default
+  resourceVersion: "1688"
+  selfLink: /api/v1/namespaces/default/services/my-fileupload
+  uid: 62997e12-5879-40a6-b96e-98d126bc18ab
+spec:
+  clusterIP: None
+  ports:
+  - port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    run: my-fileupload
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

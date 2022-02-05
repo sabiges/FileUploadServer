@@ -1,3 +1,141 @@
+Final logs with store binary and kubenernetes pods
+-----------------------------------------------
+
+Client side :
+
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 ls
+Destination Address : 192.168.39.34
+Destination Port : 30004
+List is called with files :
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 wc
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Wc is called with files : []
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 update file4.txt
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Update is called with files : [file4.txt]
+Api request successfully finished  update
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 wc
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Wc is called with files : []
+API Response For WordCount of file names (file4.txt) is  7
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 update file1.txt file2.txt
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Update is called with files : [file1.txt file2.txt]
+error opening file
+[abeeshks@localhost client]$ cat file1.txt
+1 2 3 4 5
+[abeeshks@localhost client]$ cat file2.txt
+cat: file2.txt: No such file or directory
+[abeeshks@localhost client]$ tee file2.txt
+dsf
+dsf
+sf
+sf
+dsf
+dsf
+dsds^C
+bash: history: write error: Success
+[abeeshks@localhost client]$ cat file2.txt
+dsf
+sf
+dsf
+ds[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 update file1.txt file2.txt
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Update is called with files : [file1.txt file2.txt]
+Api request successfully finished  update
+[abeeshks@localhost client]$ ./store -ip 192.168.39.34 -port 30004 wc
+Destination Address : 192.168.39.34
+Destination Port : 30004
+Wc is called with files : []
+API Response For WordCount of file names (file1.txt) is  5
+API Response For WordCount of file names (file2.txt) is  4
+API Response For WordCount of file names (file4.txt) is  7
+[abeeshks@localhost client]$ 
+
+
+
+Server Side:
+
+[abeeshks@localhost templates]$ kubectl get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+my-fileupload-77d6dc46d-jhl59   1/1     Running   0          76m
+[abeeshks@localhost templates]$ kubectl logs my-fileupload-77d6dc46d-jhl59
+
+Starting server in 4000 port
+
+2022/02/05 21:41:00 Entered to upload Handler
+
+2022/02/05 21:41:00 Method received in Upload handler : POST
+2022/02/05 21:41:14 File open error  open store/: no such file or directory
+[]
+[]
+2022/02/05 22:07:35 File open error  open store/: no such file or directory
+2022/02/05 22:07:42 File open error  open store/: no such file or directory
+[]
+2022/02/05 22:09:31 File open error  open store/: no such file or directory
+[]
+2022/02/05 22:16:36 File open error  open store/: no such file or directory
+[]
+2022/02/05 22:38:34 File open error  open store/: no such file or directory
+[]
+[]
+2022/02/05 22:38:44 File open error  open store/: no such file or directory
+2022/02/05 22:38:56 Entered to upload Handler
+
+2022/02/05 22:38:56 Method received in Upload handler : PATCH
+2022/02/05 22:38:56 store is store
+2022/02/05 22:38:56 Filename not exists
+2022/02/05 22:38:56 File to copy :  file4.txt
+word: 'r' - position: '0'
+word: 't' - position: '1'
+word: 'f' - position: '2'
+word: 's' - position: '3'
+word: 'sr' - position: '4'
+word: 'e' - position: '5'
+word: 'e' - position: '6'
+7
+[{file4.txt 7}]
+2022/02/05 22:41:09 Entered to upload Handler
+
+2022/02/05 22:41:09 Method received in Upload handler : PATCH
+2022/02/05 22:41:09 store is store
+2022/02/05 22:41:09 Filename not exists
+2022/02/05 22:41:09 File to copy :  file1.txt
+2022/02/05 22:41:09 store is store
+2022/02/05 22:41:09 Filename not exists
+2022/02/05 22:41:09 File to copy :  file2.txt
+word: '1' - position: '0'
+word: '2' - position: '1'
+word: '3' - position: '2'
+word: '4' - position: '3'
+word: '5' - position: '4'
+5
+word: 'dsf' - position: '0'
+word: 'sf' - position: '1'
+word: 'dsf' - position: '2'
+word: 'ds' - position: '3'
+4
+word: 'r' - position: '0'
+word: 't' - position: '1'
+word: 'f' - position: '2'
+word: 's' - position: '3'
+word: 'sr' - position: '4'
+word: 'e' - position: '5'
+word: 'e' - position: '6'
+7
+[{file1.txt 5} {file2.txt 4} {file4.txt 7}]
+[abeeshks@localhost templates]$ 
+
+
+
+Draft logs with go run option:
+-------------
+
 [abeeshks@localhost client]$ cat file2.txt 
 fdsf
 dfds
@@ -110,3 +248,4 @@ API Response For list file names are   file4.txt
 [abeeshks@localhost client]$ 
 
 
+------------------------------

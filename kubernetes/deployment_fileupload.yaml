@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-fileupload
+spec:
+  selector:
+    matchLabels:
+      run: my-fileupload
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: my-fileupload
+    spec:
+      containers:
+      - name: my-fileupload
+        image: fileuploadser:v1
+        ports:
+        - containerPort: 4000
