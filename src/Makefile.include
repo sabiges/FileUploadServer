@@ -1,0 +1,6 @@
+GIT_TOP=$(shell git rev-parse --show-toplevel 2>/dev/null)
+TOPROOT=${GIT_TOP}
+GOROOT:=$(shell go env GOROOT)
+export TOPROOT
+export GOROOT
+
