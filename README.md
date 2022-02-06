@@ -179,12 +179,9 @@ ok  	test/FileUploadServer/server	0.003s
 
 Prerequiste : kvm2 driver is required.
 
-minikube instalation guide
+*[minikube instalation guide] (https://fedoramagazine.org/minikube-kubernetes/)
 
-https://fedoramagazine.org/minikube-kubernetes/
-
-kvm installation guide
-https://computingforgeeks.com/how-to-install-kvm-on-fedora/
+*[kvm installation guide] (https://computingforgeeks.com/how-to-install-kvm-on-fedora/)
 
 
 Run below commands:
@@ -318,7 +315,7 @@ store -ip <ip> -port <port> wc
 ```
 
 ------------------------------------
-# Tested logs are there in * [Tested_logs](https://github.com/sabiges/FileUploadServer/blob/main/Tested_Logs) -- Please go through it for more details.
+# Tested logs are there in  this link: [Tested_logs](https://github.com/sabiges/FileUploadServer/blob/main/Tested_Logs) -- Please go through it for more details.
 
 
 Thankyou.
