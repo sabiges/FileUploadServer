@@ -51,7 +51,7 @@ Run Server in a separate terminal/docker container/kubernetes pod.
 Run Client in seperate teminal
 
 ## Different commands used.
-
+```
  go run fileuploadclient.go add file2.txt
  
  go run fileuploadclient.go add file2.txt 
@@ -67,10 +67,10 @@ Run Client in seperate teminal
  go run workingfileuploadclient.go rm file2.txt
  
  go run workingfileuploadclient.go ls
-
+```
 
 ## Docker file building 
-
+```
 Step1 : git clone https://github.com/sabiges/FileUploadServer.git 
 
 Step2: cd FileUploadServer
@@ -111,10 +111,10 @@ Step 11/11 : CMD [ "/server-fileupload" ]
  ---> 22ccb24c0a94
 Successfully built 22ccb24c0a94
 Successfully tagged fileuploadser:v1
-
+```
 
 ## Server image execution through different approach
-
+```
 1. Invoking go binary
 
 a. cd FileUploadServer/src/server
@@ -141,10 +141,10 @@ b. make install
 
 c. ls -lrt  FileUploadServer/bin/
    o/p : store
-   
+```   
    
 ## go test for client and server
-
+```
 cd FileUploadServer/src/client
 
 b. make test
@@ -172,7 +172,7 @@ Log:
 Running tool: /usr/local/go/bin/go test -timeout 30s -run ^TestUploadServer$ test/FileUploadServer/server
 
 ok  	test/FileUploadServer/server	0.003s
-
+```
 
 
 ## kubernetes env preparation:
@@ -189,8 +189,10 @@ https://computingforgeeks.com/how-to-install-kvm-on-fedora/
 
 Run below commands:
 
-## To Create Kubernetes cluster with minikube, execute below commands:
+### To Create Kubernetes cluster with minikube, execute below commands:
 ---------------------------------
+```
+--
 1. echo setting no_proxy
 2. export no_proxy=$no_proxy,192.168.39.140,192.168.39.248,localhost,127.0.0.1,10.43.192.2,10.43.192.3,10.43.192.4,10.43.192.4,10.43.192.6,dockerregistry.ims.nokia.com,registry.access.redhat.com,myregistry.local,quay.io,10.96.0.0/12,192.168.0.0/12,192.168.39.0/24,172.17.0.0/12,k8s.gcr.io,gcr.io
 3. unset https_proxy
@@ -203,12 +205,13 @@ Run below commands:
 For cleaning the minikube cache files and reinstall freshely, you can try below command
 
 sudo  minikube stop; sudo minikube delete;sudo  iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X ;sudo  cd /root/minikube ;sudo  rm -rf .minikube
-
+```
 
 Logs:
 
 sh minkube_start.sh --> Same commands as mentioned above
 -------------------
+```
 setting no_proxy
 starting minikube
 😄  minikube v1.5.2 on Fedora 31
@@ -223,11 +226,11 @@ starting minikube
 🚀  Launching Kubernetes ... 
 ⌛  Waiting for: apiserver
 🏄  Done! kubectl is now configured to use "minikube"
-
+```
 -----------------------------------------
 
 ## kubernetes deployment and file creation
-
+```
 Step 1: FileUploadServer/kubernetes
 
 Step 2: Create deployment and service
@@ -246,11 +249,11 @@ NAME            TYPE        CLUSTER-IP       EXTERNAL-IP     PORT(S)          AG
 kubernetes      ClusterIP   10.96.0.1        <none>          443/TCP          88m
 my-fileupload   NodePort    10.109.131.140   192.168.39.34   4000:30004/TCP   41m
 [abeeshks@localhost kubernetes]$ 
-
+```
 
 
 ## How to test the functionality.
-
+```
 Use help option
 
 Step 1: 
@@ -269,7 +272,7 @@ store -ip <ip> -port <port> ls
 store -ip <ip> -port <port> rm <file1> <file2> ...
 store -ip <ip> -port <port> update <file1> <file2> ...
 store -ip <ip> -port <port> wc
-
+```
 ------------------------------------
 # Project Directory Structure
 ---------------------------
