@@ -282,7 +282,7 @@ store -ip <ip> -port <port> wc
 ├── dockerfiles
 │   └── Dockerfile
 ├── image
-│   └── fileuploadserverimage.tar >> Due to huge size this folder is removed
+│   └── fileuploadserverimage.tar >> Due to huge size, this folder is removed
 ├── kubernetes
 │   ├── deployment_fileupload.yaml
 │   └── fileupload_service.yaml
