@@ -1,21 +1,21 @@
 
 <!-- File Upload server and client -->
-# File Upload server and client
+## File Upload server and client
 -----------------------------
 
-# Author : Abeesh KS
+## Author : Abeesh KS
 -----------------------------
 
-# Description :
+## Description :
 -------------
 
 Writing a simple file store service (HTTP server and a command line client)
 that stores plain-text files. Server would receive requests from clients to 
 store, update, delete files, and perform operations on files stored in the server.
 
-# Note: Created this package with no 3rd party dependency
+## Note: Created this package with no 3rd party dependency
 
-# Supporting operations:
+## Supporting operations:
 
 1. Add files to the store.
 
@@ -40,15 +40,15 @@ a. word count: store wc ; returns the number of words in all the files stored
 in server
 
 
-# Testing with GO file later made to store go binary : /* go build fileuploadclient.go -o store */  
+## Testing with GO file later made to store go binary : /* go build fileuploadclient.go -o store */  
 
 Run Server in a separate terminal/docker container/kubernetes pod. 
 
-# In Linux Machine , new terminal : go run fileuploadserver.go
+## In Linux Machine , new terminal : go run fileuploadserver.go
 
 Run Client in seperate teminal
 
-# Different commands used.
+## Different commands used.
 
  go run fileuploadclient.go add file2.txt
  
@@ -67,7 +67,7 @@ Run Client in seperate teminal
  go run workingfileuploadclient.go ls
 
 
-# Docker file building 
+## Docker file building 
 
 Step1 : git clone https://github.com/sabiges/FileUploadServer.git 
 
@@ -111,7 +111,7 @@ Successfully built 22ccb24c0a94
 Successfully tagged fileuploadser:v1
 
 
-# Server image execution through different approach
+## Server image execution through different approach
 
 1. Invoking go binary
 
@@ -141,7 +141,7 @@ c. ls -lrt  FileUploadServer/bin/
    o/p : store
    
    
-# go test for client and server
+## go test for client and server
 
 cd FileUploadServer/src/client
 
@@ -173,7 +173,7 @@ ok  	test/FileUploadServer/server	0.003s
 
 
 
-# kubernetes env preparation:
+## kubernetes env preparation:
 
 Prerequiste : kvm2 driver is required.
 
@@ -187,7 +187,7 @@ https://computingforgeeks.com/how-to-install-kvm-on-fedora/
 
 Run below commands:
 
-To Create Kubernetes cluster with minikube, execute below commands:
+## To Create Kubernetes cluster with minikube, execute below commands:
 ---------------------------------
 1. echo setting no_proxy
 2. export no_proxy=$no_proxy,192.168.39.140,192.168.39.248,localhost,127.0.0.1,10.43.192.2,10.43.192.3,10.43.192.4,10.43.192.4,10.43.192.6,dockerregistry.ims.nokia.com,registry.access.redhat.com,myregistry.local,quay.io,10.96.0.0/12,192.168.0.0/12,192.168.39.0/24,172.17.0.0/12,k8s.gcr.io,gcr.io
@@ -224,7 +224,7 @@ starting minikube
 
 -----------------------------------------
 
-# kubernetes deployment and file creation
+## kubernetes deployment and file creation
 
 Step 1: FileUploadServer/kubernetes
 
@@ -247,7 +247,7 @@ my-fileupload   NodePort    10.109.131.140   192.168.39.34   4000:30004/TCP   41
 
 
 
-# How to test the functionality.
+## How to test the functionality.
 
 Use help option
 
@@ -269,7 +269,7 @@ store -ip <ip> -port <port> update <file1> <file2> ...
 store -ip <ip> -port <port> wc
 
 ------------------------------------
-Project Directory Structure
+# Project Directory Structure
 ---------------------------
 
 [abeeshks@localhost FileUploadServer]$ tree
@@ -314,7 +314,7 @@ Project Directory Structure
 
 ------------------------------------
 
-Tested logs are there in Tested_logs -- Please go through it for more details.
+# Tested logs are there in Tested_logs -- Please go through it for more details.
 
 Thankyou.
 
