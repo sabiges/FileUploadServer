@@ -318,8 +318,8 @@ store -ip <ip> -port <port> wc
 ```
 
 ------------------------------------
+# Tested logs are there in * [Tested_logs](https://github.com/sabiges/FileUploadServer/blob/main/Tested_Logs) -- Please go through it for more details.
 
-# Tested logs are there in Tested_logs -- Please go through it for more details.
 
 Thankyou.
 
