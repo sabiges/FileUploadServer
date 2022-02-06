@@ -179,9 +179,9 @@ ok  	test/FileUploadServer/server	0.003s
 
 Prerequiste : kvm2 driver is required.
 
-*[minikube instalation guide] (https://fedoramagazine.org/minikube-kubernetes/)
+*[minikube instalation guide](https://fedoramagazine.org/minikube-kubernetes/)
 
-*[kvm installation guide] (https://computingforgeeks.com/how-to-install-kvm-on-fedora/)
+*[kvm installation guide](https://computingforgeeks.com/how-to-install-kvm-on-fedora/)
 
 
 Run below commands:
