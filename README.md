@@ -15,8 +15,10 @@ store, update, delete files, and perform operations on files stored in the serve
 
 ## Note: Created this package with no 3rd party dependency
 
-## Supporting operations:
+### Supporting operations:
 
+
+```
 1. Add files to the store.
 
 E.g: store add file1.txt file2.txt ; should send both files - file1.txt
@@ -38,7 +40,7 @@ absent.
 5. Support the following operations on files
 a. word count: store wc ; returns the number of words in all the files stored
 in server
-
+```
 
 ## Testing with GO file later made to store go binary : /* go build fileuploadclient.go -o store */  
 
@@ -271,7 +273,7 @@ store -ip <ip> -port <port> wc
 ------------------------------------
 # Project Directory Structure
 ---------------------------
-
+```
 [abeeshks@localhost FileUploadServer]$ tree
 .
 ├── bin
@@ -310,7 +312,7 @@ store -ip <ip> -port <port> wc
 │       ├── Makefile
 │       └── store_server_binary
 └── Tested_Logs
-
+```
 
 ------------------------------------
 
